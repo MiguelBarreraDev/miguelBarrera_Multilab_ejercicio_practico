@@ -30,6 +30,6 @@ class LoginRequest extends FormRequest
     }
 
     public function getCredentials() {
-        return this->only('email', 'password');
+        return $this->only('email', 'password');
     }
 }
