@@ -16,15 +16,16 @@
             width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
         }
         .form-login {
+            height: fit-content;
             width: 100%;
             max-width: 500px;
         }
     </style>
 </head>
 <body>
+    @include('partials.nav')
     <main class="container container-form">
         @yield('content')
     </main>
