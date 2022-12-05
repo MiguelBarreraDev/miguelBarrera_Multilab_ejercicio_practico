@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\PacientesController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,8 @@ Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
 
 Route::get('/home', [HomeController::class, 'show']);
+
+Route::get('/logout', [LogoutController::class, 'logout']);
 
 Route::get('/token', function () {
     echo csrf_token();
