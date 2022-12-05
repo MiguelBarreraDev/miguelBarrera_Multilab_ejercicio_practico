@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacientesController;
+use App\Http\Controller\HomeController;
+use App\Http\Controller\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,12 @@ Route::get('/pacientes/{id}', [PacientesController::class, 'show']);
 Route::post('/pacientes', [PacientesController::class, 'store']);
 Route::put('/pacientes/{id}', [PacientesController::class, 'update']);
 Route::delete('/pacientes/{id}', [PacientesController::class, 'destroy']);
+
+Route::get('/login', [LoginController::class, 'show']);
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::get('/home', [HomeController::class, 'show']);
+
 
 Route::get('/token', function () {
     echo csrf_token();
