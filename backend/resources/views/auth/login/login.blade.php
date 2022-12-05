@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('content')
-<form action="/login" method="POST" class="form-login box">
+<form action="/login" method="POST" class="form-login box mx-2 mt-6">
     @csrf
     <h1 class="title is-4 has-text-centered">Multilab</h1>
     @if($errors->any())
