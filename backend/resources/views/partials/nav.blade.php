@@ -39,9 +39,15 @@
 
 <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-        <a class="navbar-item" href="{{ url('/home') }}">
-            <img src="https://www.multilab.com.pe/img/logo-default.webp" width="112" height="28">
-        </a>
+        @auth
+            <a class="navbar-item" href="{{ url('/home') }}">
+                <img src="https://www.multilab.com.pe/img/logo-default.webp" width="112" height="28">
+            </a>
+        @else
+            <a class="navbar-item">
+                <img src="https://www.multilab.com.pe/img/logo-default.webp" width="112" height="28">
+            </a>
+        @endauth
 
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
             <span aria-hidden="true"></span>
@@ -54,9 +60,11 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
         <div class="navbar-start">
+            @auth
             <a class="navbar-item" href="{{ url('/home') }}">
                 Home
             </a>
+            @endauth
             <a class="navbar-item" href="{{ url('/centrosmedicos') }}" target="_blank">
                 Centros médicos
             </a>
@@ -64,6 +72,7 @@
                 Pacientes
             </a>
         </div>
+        @auth
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
@@ -74,5 +83,6 @@
                 </div>
             </div>
         </div>
+        @endauth
     </div>
 </nav>
