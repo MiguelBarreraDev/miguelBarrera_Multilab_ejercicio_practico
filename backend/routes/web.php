@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PacientesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,4 +35,14 @@ Route::get('/centrosmedicos', function () {
     ];
 
     return response($centrosmedicos, 200);
+});
+
+Route::get('/pacientes', [PacientesController::class, 'index']);
+Route::get('/pacientes/{id}', [PacientesController::class, 'show']);
+Route::post('/pacientes', [PacientesController::class, 'store']);
+Route::put('/pacientes/{id}', [PacientesController::class, 'update']);
+Route::delete('/pacientes/{id}', [PacientesController::class, 'destroy']);
+
+Route::get('/token', function () {
+    echo csrf_token();
 });
