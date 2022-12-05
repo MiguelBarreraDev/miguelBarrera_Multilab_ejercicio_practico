@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\PacientesController;
 use App\Http\Controller\HomeController;
 use App\Http\Controller\LoginController;
@@ -53,4 +54,8 @@ Route::get('/home', [HomeController::class, 'show']);
 
 Route::get('/token', function () {
     echo csrf_token();
+});
+
+Route::get('/hashed/{password}', function ($password) {
+    echo Hash::make($password);
 });
