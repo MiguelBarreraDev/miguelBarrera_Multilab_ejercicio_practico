@@ -20,7 +20,7 @@ use App\Http\Controllers\SignupController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect('/login');
 });
 
 Route::get('/centrosmedicos', function () {
