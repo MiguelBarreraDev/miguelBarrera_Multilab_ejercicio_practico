@@ -22,6 +22,6 @@ class OrderDetail extends Model
      */
     public function medicalTest()
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(MedicalTest::class);
     }
 }

@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class MedicalTest extends Model
 {
     use HasFactory;
+
+    /**
+     * Relacion de uno a muchos con order_detatils table.
+     */
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
+    }
 }
