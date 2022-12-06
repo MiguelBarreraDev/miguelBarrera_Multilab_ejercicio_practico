@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
+            $table->float('price', 7,2);
             $table->timestamps();
         });
     }
