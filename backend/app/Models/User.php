@@ -50,4 +50,11 @@ class User extends Authenticatable
     public function setPasswordAttribute ($value) {
         $this->attributes['password'] = bcrypt($value);
     }
+
+    /**
+     * Relación uno a muchos con orders table
+     */
+    public function orders () {
+        return $this->haMany(Order::class);
+    }
 }
