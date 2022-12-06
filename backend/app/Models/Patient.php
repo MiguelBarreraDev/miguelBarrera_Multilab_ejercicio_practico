@@ -15,4 +15,11 @@ class Patient extends Model
      * @var string
      */
     protected $table = 'patient';
+
+    /**
+     * Relación uno a muchos con orders.
+     */
+    public function orders () {
+        return $this->hasMany(Order::class);
+    }
 }

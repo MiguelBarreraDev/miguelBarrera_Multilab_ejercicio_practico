@@ -15,4 +15,11 @@ class Order extends Model
     public function user () {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * Relación inversa de uno a muchos con patients table.
+     */
+    public function patien () {
+        return $this->belongsTo(Patient::class);
+    }
 }
