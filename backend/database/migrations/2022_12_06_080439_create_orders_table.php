@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->char('code', 8);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }
