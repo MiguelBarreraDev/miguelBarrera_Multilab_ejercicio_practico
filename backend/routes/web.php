@@ -55,7 +55,7 @@ Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout']);
 
 
-Route::get('/orders', [OrdersController::class, 'show']);
+Route::get('/orders', [OrdersController::class, 'index']);
 Route::post('/orders', [OrdersController::class, 'store']);
 
 Route::get('/home', [HomeController::class, 'show']);
