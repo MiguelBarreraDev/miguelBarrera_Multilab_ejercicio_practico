@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->id();
+            $table->foreign('order_id')->references('id')->on('orders');
+            $table->foreign('medical_test_id')->references('id')->on('medical_tests');
             $table->float('price', 7,2);
             $table->timestamps();
         });

@@ -7,6 +7,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\SignupController;
+use App\Http\Controllers\OrdersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,6 +53,10 @@ Route::post('/signup', [SignupController::class, 'store']);
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
 Route::get('/logout', [LogoutController::class, 'logout']);
+
+
+Route::get('/orders', [OrdersController::class, 'show']);
+Route::post('/orders', [OrdersController::class, 'store']);
 
 Route::get('/home', [HomeController::class, 'show']);
 

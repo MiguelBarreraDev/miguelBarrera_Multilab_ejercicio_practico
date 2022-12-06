@@ -15,7 +15,13 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->char('code', 8);
+            $table->unsignedBigInteger('doctor_id')->nullable();
+            $table->unsignedBigInteger('patient_id');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('doctor_id')->references('id')->on('doctors');
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('patient_id')->references('id')->on('patient');
+            $table->char('code', 8)->unique();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
