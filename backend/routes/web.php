@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Hash;
-use App\Http\Controllers\PacientesController;
+use App\Http\Controllers\PatientsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
@@ -41,11 +41,11 @@ Route::get('/centrosmedicos', function () {
     return response($centrosmedicos, 200);
 });
 
-Route::get('/pacientes', [PacientesController::class, 'index']);
-Route::get('/pacientes/{id}', [PacientesController::class, 'show']);
-Route::post('/pacientes', [PacientesController::class, 'store']);
-Route::put('/pacientes/{id}', [PacientesController::class, 'update']);
-Route::delete('/pacientes/{id}', [PacientesController::class, 'destroy']);
+Route::get('/pacientes', [PatientsController::class, 'index']);
+Route::get('/pacientes/{id}', [PatientsController::class, 'show']);
+Route::post('/pacientes', [PatientsController::class, 'store']);
+Route::put('/pacientes/{id}', [PatientsController::class, 'update']);
+Route::delete('/pacientes/{id}', [PatientsController::class, 'destroy']);
 
 Route::get('/login', [LoginController::class, 'show']);
 Route::post('/login', [LoginController::class, 'login']);
