@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\Session;
 
 class LogoutController extends Controller
 {
+    /**
+     * Termina la sesión del usuario actual.
+     */
     public function logout () {
         Session::flush();
 

@@ -8,6 +8,9 @@ use App\Http\Requests\LoginRequest;
 
 class LoginController extends Controller
 {
+    /**
+     * Retorna la vista para iniciar sesión.
+     */
     public function show () {
         if (Auth::check()) {
             return redirect('/home');
@@ -16,6 +19,11 @@ class LoginController extends Controller
         return view('auth.login.login');
     }
 
+    /**
+     * Autentica a un usuario en la aplicación.
+     * 
+     * @param LoginRequest $request
+     */
     public function login (LoginRequest $request) {
         $credentials = $request->getCredentials();
         if (!Auth::validate($credentials)) {
