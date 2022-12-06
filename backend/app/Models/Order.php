@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    /**
+     * Relación inversa de uno a muchos con users table.
+     */
+    public function user () {
+        return $this->belongsTo(User::class);
+    }
 }
