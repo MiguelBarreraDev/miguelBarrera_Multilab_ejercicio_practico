@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <!-- Font awesome -->
     <script src="https://kit.fontawesome.com/5980929ce4.js" crossorigin="anonymous"></script>
+    {{-- Styles --}}
+    {{-- TODO: Extract code to css file --}}
+    <style>
+        html {
+            overflow-y: auto;
+        }
+    </style>
 </head>
 <body>
 
