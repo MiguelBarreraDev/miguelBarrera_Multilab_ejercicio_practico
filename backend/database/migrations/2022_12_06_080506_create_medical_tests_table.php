@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('medical_tests', function (Blueprint $table) {
             $table->id();
+            $table->string('name', 50);
+            $table->text('description')->nullable();
+            $table->float('price', 7.2);
             $table->timestamps();
         });
     }
