@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 
 class OrdersController extends Controller
@@ -12,7 +13,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::with('user', 'patient')->get();
 
         return response($orders, 200);
     }
@@ -22,7 +23,12 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        $order = Order::create($request->only('code'));
-        return $order;
+        $order = new Order;
+        $order->code = $request->code;
+        $order->patient_id = $request->patient_id;
+        $order->user_id = Auth::user()->id;
+        $order->save();
+
+        return response($order, 200);
     }
 }
