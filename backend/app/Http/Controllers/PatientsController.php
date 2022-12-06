@@ -16,11 +16,11 @@ class PatientsController extends Controller
      */
     public function store (Request $request) {
         $validator = Validator::make($request->all(), [
-            'firt_name' => 'required',
+            'first_name' => 'required',
             'last_name' => 'required',
             'birth_date' => 'required',
         ], [
-            'firt_name.required' => ':attribute is requerid',
+            'first_name.required' => ':attribute is requerid',
             'last_name.required' => ':attribute is requerid',
             'birth_date.required' => ':attribute is requerid',
         ]);
@@ -30,8 +30,9 @@ class PatientsController extends Controller
         }
 
         $patient = new Patient;
-        $patient->firt_name = $request->firt_name;
+        $patient->first_name = $request->first_name;
         $patient->last_name = $request->last_name;
+        $patient->birth_date = $request->birth_date;
         $patient->save();
 
         return response($patient, 201);
@@ -71,10 +72,10 @@ class PatientsController extends Controller
      */
     public function update (Request $request, $id) {
         $validator = Validator::make($request->all(), [
-            'firt_name' => 'min:2',
+            'first_name' => 'min:2',
             'last_name' => 'min:2',
         ], [
-            'firt_name.min' => 'The :attribute must have at least :min character',
+            'first_name.min' => 'The :attribute must have at least :min character',
             'last_name.min' => 'The :attribute must have at least :min character'
         ]);
 
@@ -86,7 +87,7 @@ class PatientsController extends Controller
             return response($validator->errors(), 400);
         }
 
-        if ($request->firt_name) $patient->firt_name = $request->firt_name;
+        if ($request->first_name) $patient->first_name = $request->first_name;
         if ($request->last_name) $patient->last_name = $request->last_name;
         if ($request->birth_date) $patient->birth_date = $request->birth_date;
         if ($request->phone_number) $patient->phone_number = $request->phone_number;
