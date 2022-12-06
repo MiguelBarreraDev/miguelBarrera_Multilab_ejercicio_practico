@@ -9,10 +9,19 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
-        /**
-     * Relación inversa de uno a muchos con doctors table.
+    /**
+     * Relación inversa de uno a muchos con orders table.
      */
-    public function doctor () {
-        return $this->belongsTo(Doctor::class);
+    public function order()
+    {
+        return $this->belongsTo(Order::class);
+    }
+
+    /**
+     * Relación inversa de uno a muchos con medical_test table.
+     */
+    public function medicalTest()
+    {
+        return $this->belongsTo(Order::class);
     }
 }
