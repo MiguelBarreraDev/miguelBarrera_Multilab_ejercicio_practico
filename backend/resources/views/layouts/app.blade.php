@@ -15,6 +15,10 @@
         html {
             overflow-y: auto;
         }
+
+        table {
+            margin: auto;
+        }
     </style>
 </head>
 <body>
