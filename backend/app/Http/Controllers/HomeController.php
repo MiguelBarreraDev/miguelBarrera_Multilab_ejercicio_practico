@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
 
 class HomeController extends Controller
 {
@@ -12,6 +13,8 @@ class HomeController extends Controller
             return redirect('/login');
         }
 
-        return view('home.home');
+        $orders = Order::with('patient', 'user')->get();
+
+        return view('home.home', ['orders' => $orders]);
     }
 }
