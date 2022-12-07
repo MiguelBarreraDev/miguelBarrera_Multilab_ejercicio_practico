@@ -37,7 +37,11 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::with('user', 'patient')->get();
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+
+        if (!empty($orders)) {
+            $orders->load('user', 'patient');
+        }
 
         return response($orders, 200);
     }

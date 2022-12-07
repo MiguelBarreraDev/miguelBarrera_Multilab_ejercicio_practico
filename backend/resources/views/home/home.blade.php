@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }}</h1>
+<h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }} {{ auth()->user()->id }}</h1>
 <div class="container table-responsive">
   <table class="table align-middle w-100 table-hover table-bordered shadow-sm caption-top">
     <caption>
