@@ -13,7 +13,11 @@ class HomeController extends Controller
             return redirect('/login');
         }
 
-        $orders = Order::with('patient', 'user')->get();
+        $orders = Order::where('user_id', Auth::user()->id)->get();
+
+        if (isset($orders)) {
+            $orders->load('user', 'patient');
+        }
 
         return view('home.home', ['orders' => $orders]);
     }
