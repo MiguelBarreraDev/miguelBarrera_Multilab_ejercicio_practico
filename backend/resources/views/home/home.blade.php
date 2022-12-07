@@ -19,6 +19,7 @@
       </tr>
     </thead>
     <tbody>
+      @if (count($orders) > 0)
       @foreach ($orders as $order)
       <tr>
         <th scope="row">{{ $order->code }}</th>
@@ -28,6 +29,13 @@
         <td>{{ isset($order->orderDetails->price) ? $order->orderDetails->price : 'No definido' }}</td>
       </tr>
       @endforeach
+      @else
+      <tr>
+        <td colspan="100%" rowspan="100%" class="text-center">
+          No hay ordenes registradas
+        </td>
+      </tr>
+      @endif
     </tbody>
   </table>
 </div>

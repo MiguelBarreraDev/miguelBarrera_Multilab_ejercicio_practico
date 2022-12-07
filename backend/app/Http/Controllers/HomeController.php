@@ -15,7 +15,7 @@ class HomeController extends Controller
 
         $orders = Order::where('user_id', Auth::user()->id)->get();
 
-        if (!empty($orders)) {
+        if (isset($orders)) {
             $orders->load('user', 'patient');
         }
 
