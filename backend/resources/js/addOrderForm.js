@@ -20,7 +20,6 @@ const updatePrice = () => {
         return ac + medicalTests.find((test) => test.id == id).price;
     }, 0);
 
-    console.log(price);
     priceField.textContent = price?.toFixed(3).toString();
 };
 
