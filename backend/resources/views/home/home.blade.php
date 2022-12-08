@@ -46,7 +46,7 @@
     </tbody>
   </table>
 </div>
-<div class="container d-flex justify-content-end">
+<div class="container d-flex justify-content-end mb-4">
   <button href="{{ url('/order')}}" class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     <i class="fa fa-add"></i>
     Añadir orden

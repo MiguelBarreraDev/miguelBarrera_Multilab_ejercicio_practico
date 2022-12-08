@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{{url('/orders')}}" method="POST" id="form-add-order" class="needs-validation" novalidate>
+                <form action="{{url('/orders')}}" method="POST" id="add-order-form" class="needs-validation" novalidate>
                     @csrf
                     <div class="mb-3">
                         <label for="patientInput" class="form-label">Seleccione un paciente</label>
@@ -33,7 +33,8 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" form="form-add-order" class="btn btn-teal">Save orden</button>
+                <button type="submit" form="add-order-form" class="btn btn-teal" id="add-order-submit-button">Save
+                    orden</button>
             </div>
         </div>
     </div>
