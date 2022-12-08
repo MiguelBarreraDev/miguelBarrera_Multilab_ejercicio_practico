@@ -27,7 +27,7 @@
         <th scope="col">Creado en</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
-        <th scope="col">Precio total</th>
+        <th scope="col">Precio S/.</th>
         <th scope="col">Doctor</th>
       </tr>
     </thead>
@@ -39,7 +39,7 @@
         <td>{{ $order->created_at }}</td>
         <td>{{ $order->patient->first_name }}</td>
         <td>{{ $order->patient->last_name }}</td>
-        <td>{{ isset($order->orderDetails->price) ? $order->orderDetails->price : 'No definido' }}</td>
+        <td>{{ isset($order->price) ? $order->price : 'No definido' }}</td>
         <td>{{ isset($order->doctor_id) ? 'Sí' : 'No' }}</td>
       </tr>
       @endforeach

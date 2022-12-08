@@ -11,7 +11,8 @@ use App\Models\MedicalTest;
 
 class HomeController extends Controller
 {
-    public function show () {
+    public function show()
+    {
         if (!Auth::check()) {
             return redirect('/login');
         }
@@ -21,6 +22,8 @@ class HomeController extends Controller
         if (isset($orders)) {
             $orders->load('user', 'patient');
         }
+
+        $orders->loadSum('orderDetails as price', 'price');
 
         $patients = Patient::all();
 

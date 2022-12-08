@@ -32,7 +32,7 @@
                     <div class="mb-3" id="tests-collection">
                         <label for="medicalTestInput-0">Seleccione Tests*</label>
                         <div class="input-group mb-1" id="model-input-test-0" data-index='0'>
-                            <select name="medical_test_id" id="medicalTestInput-0" class="form-select" required>
+                            <select name="medical_test_id_0" id="medicalTestInput-0" class="form-select" required>
                                 <option selected value="" disabled>---</option>
                                 @foreach ($medicalTests as $medicalTest)
                                 <option value="{{ $medicalTest->id }}">{{ $medicalTest->name}}</option>
