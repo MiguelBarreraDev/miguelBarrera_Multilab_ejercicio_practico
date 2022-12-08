@@ -60,7 +60,7 @@
                 </div>
                 <div>
                     <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="submit" form="add-order-form" class="btn btn-teal" id="add-order-submit-button">Save
+                    <button type="submit" form="add-order-form" class="btn btn-outline-cs-teal" id="add-order-submit-button">Save
                         orden</button>
                 </div>
             </div>

@@ -1,0 +1,12 @@
+// Required
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+
+// Create you own map
+$custom-colors: (
+    "cs-teal": #20c997
+);
+
+// Merge the maps
+$theme-colors: map-merge($theme-colors, $custom-colors);

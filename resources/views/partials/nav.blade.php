@@ -27,7 +27,7 @@
                 </li>
             </ul>
             @auth
-            <a href="/logout" class="btn btn-outline-teal">
+            <a href="/logout" class="btn btn-outline-cs-teal">
                 <i class=" fa-solid fa-right-from-bracket"></i>
                 <strong>Log out</strong>
             </a>

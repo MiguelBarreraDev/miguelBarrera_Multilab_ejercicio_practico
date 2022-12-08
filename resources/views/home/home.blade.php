@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }}</h1>
+<h1 class="ft-3 text-center text-cs-teal fw-bold my-4">Welcome {{ auth()->user()->name }}</h1>
 <?php $success = Session::get('success', false) ?>
 @if($success)
-<div id='alert-add-order-success' class="container alert alert-teal alert-dismissible fade show" role="alert">
+<div id='alert-add-order-success' class="container alert alert-primary alert-dismissible fade show" role="alert">
   <strong><i class="fa-solid fa-circle-check"></i> {{ $success }}</strong>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
@@ -14,7 +14,7 @@
     <h3 class="fs-4 fw-bold text-secondary m-0">
       Lista de ordenes
     </h3>
-    <button href="{{ url('/order')}}" class="btn btn-outline-teal fw-bold" data-bs-toggle="modal"
+    <button href="{{ url('/order')}}" class="btn btn-outline-cs-teal fw-bold" data-bs-toggle="modal"
       data-bs-target="#staticBackdrop">
       <i class="fa fa-add"></i>
       Añadir orden
