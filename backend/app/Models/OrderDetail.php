@@ -9,6 +9,12 @@ class OrderDetail extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'order_id',
+        'medical_test_id',
+        'price'
+    ];
+
     /**
      * Relación inversa de uno a muchos con orders table.
      */

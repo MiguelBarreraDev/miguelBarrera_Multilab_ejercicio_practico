@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
+use App\Models\MedicalTest;
 
 class Helper
 {
@@ -37,11 +38,9 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = Order::with('user', 'patient', 'orderDetails')->get();
 
-        if (!empty($orders)) {
-            $orders->load('user', 'patient');
-        }
+        $orders->loadSum('orderDetails as price', 'price');
 
         return response($orders, 200);
     }
@@ -53,14 +52,58 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        $order = new Order();
+        $order = new Order;
         $order->code = Helper::generateUniqueCode();
         $order->patient_id = $request->patient_id;
+
         if (isset($request->doctor_id)) {
             $order->doctor_id = $request->doctor_id;
         }
+
         $order->user_id = Auth::user()->id;
         $order->save();
+
+        foreach ($request->medical_tests_ids as $id) {
+            $medicalTest = MedicalTest::find($id);
+            $order->orderDetails()->create([
+                'order_id' => $order->id,
+                'medical_test_id' => $id,
+                'price' => $medicalTest->price
+            ]);
+        }
+
+        $order->save();
+
+        return response($order, 200);
+    }
+
+    /**
+     * Create order
+     *
+     * @param Request $request
+     */
+    public function create(Request $request)
+    {
+        $order = new Order;
+        $order->code = Helper::generateUniqueCode();
+        $order->patient_id = $request->patient_id;
+
+        if (isset($request->doctor_id)) {
+            $order->doctor_id = $request->doctor_id;
+        }
+
+        $order->user_id = Auth::user()->id;
+
+        $order->save();
+
+        foreach ($request->medical_tests_ids as $id) {
+            $medicalTest = MedicalTest::find($id);
+            $order->orderDetails()->create([
+                'order_id' => $order->id,
+                'medical_test_id' => $id,
+                'price' => $medicalTest->price
+            ]);
+        }
 
         return redirect('/home')->with('success', 'Orden creada con exito');
     }
