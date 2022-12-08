@@ -74,6 +74,10 @@ class OrdersController extends Controller
         if (isset($request->doctor_id)) {
             $order->doctor_id = $request->doctor_id;
         }
+        $order->orderDetails()->create([
+            'medical_test_id' => $request->medical_test_id,
+            'price'
+        ]);
         $order->user_id = Auth::user()->id;
         $order->save();
 

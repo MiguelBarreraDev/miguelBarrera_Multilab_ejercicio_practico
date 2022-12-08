@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
 use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\MedicalTest;
 
 class HomeController extends Controller
 {
@@ -25,10 +26,13 @@ class HomeController extends Controller
 
         $doctors = Doctor::all();
 
+        $medicalTests = MedicalTest::all();
+
         return view('home.home', [
             'orders' => $orders,
             'patients' => $patients,
-            'doctors' => $doctors
+            'doctors' => $doctors,
+            'medicalTests' => $medicalTests
         ]);
     }
 }
