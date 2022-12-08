@@ -10,12 +10,17 @@
 </div>
 @endif
 <div class="container table-responsive">
-  <table class="table align-middle w-100 table-hover table-bordered shadow-sm caption-top">
-    <caption>
-      <h3 class="fs-4 fw-bold">
-        Lista de ordenes
-      </h3>
-    </caption>
+  <div class="d-flex justify-content-between align-items-center mb-2 mt-2">
+    <h3 class="fs-4 fw-bold text-secondary m-0">
+      Lista de ordenes
+    </h3>
+    <button href="{{ url('/order')}}" class="btn btn-outline-teal fw-bold" data-bs-toggle="modal"
+      data-bs-target="#staticBackdrop">
+      <i class="fa fa-add"></i>
+      Añadir orden
+    </button>
+  </div>
+  <table class="table align-middle w-100 table-hover table-bordered shadow-sm">
     <thead class="table-dark">
       <tr>
         <th scope="col">Código</th>
@@ -46,11 +51,20 @@
     </tbody>
   </table>
 </div>
-<div class="container d-flex justify-content-end mb-4">
-  <button href="{{ url('/order')}}" class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    <i class="fa fa-add"></i>
-    Añadir orden
-  </button>
-  @include('home.modal')
+<div class="container d-flex justify-content-center mb-4 align-items-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end mb-0">
+      <li class="page-item disabled">
+        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+      </li>
+      <li class="page-item"><a class="page-link text-teal" href="#">1</a></li>
+      <li class="page-item"><a class="page-link text-teal" href="#">2</a></li>
+      <li class="page-item"><a class="page-link text-teal" href="#">3</a></li>
+      <li class="page-item">
+        <a class="page-link text-teal" href="#">Next</a>
+      </li>
+    </ul>
+  </nav>
 </div>
+@include('home.modal')
 @endsection
