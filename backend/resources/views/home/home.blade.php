@@ -2,9 +2,10 @@
 
 @section('content')
 <h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }} {{ auth()->user()->id }}</h1>
-@if(Session::get('success', false))
+<?php $success = Session::get('success', false) ?>
+@if($success)
 <div id='alert-add-order-success' class="container alert alert-teal alert-dismissible fade show" role="alert">
-  <strong>{{ Session::get('success') }}</strong>
+  <strong><i class="fa-solid fa-circle-check"></i> {{ $success }}</strong>
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>
 @endif
