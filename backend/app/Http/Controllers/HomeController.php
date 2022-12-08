@@ -15,7 +15,7 @@ class HomeController extends Controller
             return redirect('/login');
         }
 
-        $orders = Order::where('user_id', Auth::user()->id)->get();
+        $orders = Order::where('user_id', Auth::user()->id)->paginate(5);
 
         if (isset($orders)) {
             $orders->load('user', 'patient');

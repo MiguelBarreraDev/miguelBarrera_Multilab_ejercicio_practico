@@ -52,7 +52,8 @@
   </table>
 </div>
 <div class="container d-flex justify-content-center mb-4 align-items-center">
-  <nav aria-label="Page navigation example">
+  {{ $orders->links() }}
+  {{-- <nav aria-label="Page navigation example">
     <ul class="pagination justify-content-end mb-0">
       <li class="page-item disabled">
         <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
@@ -64,7 +65,7 @@
         <a class="page-link text-teal" href="#">Next</a>
       </li>
     </ul>
-  </nav>
+  </nav> --}}
 </div>
 @include('home.modal')
 @endsection
