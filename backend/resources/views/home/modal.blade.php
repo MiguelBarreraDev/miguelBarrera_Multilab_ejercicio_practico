@@ -12,7 +12,7 @@
                     <div class="mb-3">
                         <label for="patientInput" class="form-label">Seleccione un paciente</label>
                         <select name="patient_id" id="patientInput" class="form-select" required>
-                            <option selected disabled value="">...</option>
+                            <option selected disabled value="">---</option>
                             @foreach ($patients as $patient)
                             <option value="{{ $patient->id}}">{{ $patient->first_name}} {{ $patient->last_name}}
                             </option>
@@ -23,7 +23,7 @@
                     <div class="mb-3">
                         <label for="doctorInput">Seleccione un doctor</label>
                         <select name="doctor_id" id="doctorInput" class="form-select">
-                            <option selected disabled value="">...</option>
+                            <option selected value="">---</option>
                             @foreach ($doctors as $doctor)
                             <option value="{{ $doctor->id}}">{{ $doctor->first_name}} {{ $doctor->last_name}}</option>
                             @endforeach
