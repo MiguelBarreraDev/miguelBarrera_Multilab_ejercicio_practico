@@ -1,4 +1,6 @@
-/* Alert autoclose animation */
+/* ********************************** */
+/* Alert autoclose animation
+/* ********************************** */
 #alert-add-order-success {
     animation: Visible .3s forwards ease-in,
         Disappear .1s 5.7s forwards ease-in;
