@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }} {{ auth()->user()->id }}</h1>
+<h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }}</h1>
 <?php $success = Session::get('success', false) ?>
 @if($success)
 <div id='alert-add-order-success' class="container alert alert-teal alert-dismissible fade show" role="alert">

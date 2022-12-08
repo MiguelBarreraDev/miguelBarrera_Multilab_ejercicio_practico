@@ -20,10 +20,10 @@
                     <a class="nav-link" aria-current="page" href="{{ url('/home')}}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/pacientes')}}" target="_blank">Pacientes</a>
+                    <a class="nav-link" href="{{ url('/api/pacientes')}}" target="_blank">Pacientes</a>
+                    <li class="nav-item">
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ url('/centrosmedicos')}}" target="_blank">Centros médicos</a>
+                    <a class="nav-link" href="{{ url('/api/centrosmedicos')}}" target="_blank">Centros médicos</a>
                 </li>
             </ul>
             @auth

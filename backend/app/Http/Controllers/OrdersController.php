@@ -37,11 +37,7 @@ class OrdersController extends Controller
      */
     public function index()
     {
-        $orders = Order::where('user_id', Auth::user()->id)->get();
-
-        if (!empty($orders)) {
-            $orders->load('user', 'patient');
-        }
+        $orders = Order::with('user', 'patient')->get();
 
         return response($orders, 200);
     }
@@ -52,6 +48,25 @@ class OrdersController extends Controller
      * @param Request $request
      */
     public function store(Request $request)
+    {
+        $order = new Order();
+        $order->code = Helper::generateUniqueCode();
+        $order->patient_id = $request->patient_id;
+        if (isset($request->doctor_id)) {
+            $order->doctor_id = $request->doctor_id;
+        }
+        $order->user_id = Auth::user()->id;
+        $order->save();
+
+        return response($order, 200);
+    }
+
+    /**
+     * Create order
+     *
+     * @param Request $request
+     */
+    public function create(Request $request)
     {
         $order = new Order();
         $order->code = Helper::generateUniqueCode();
