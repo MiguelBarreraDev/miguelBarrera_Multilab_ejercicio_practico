@@ -28,6 +28,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Precio total</th>
+        <th scope="col">Doctor</th>
       </tr>
     </thead>
     <tbody>
@@ -39,6 +40,7 @@
         <td>{{ $order->patient->first_name }}</td>
         <td>{{ $order->patient->last_name }}</td>
         <td>{{ isset($order->orderDetails->price) ? $order->orderDetails->price : 'No definido' }}</td>
+        <td>{{ isset($order->doctor_id) ? 'Sí' : 'No' }}</td>
       </tr>
       @endforeach
       @else
@@ -53,19 +55,6 @@
 </div>
 <div class="container d-flex justify-content-center mb-4 align-items-center">
   {{ $orders->links() }}
-  {{-- <nav aria-label="Page navigation example">
-    <ul class="pagination justify-content-end mb-0">
-      <li class="page-item disabled">
-        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-      </li>
-      <li class="page-item"><a class="page-link text-teal" href="#">1</a></li>
-      <li class="page-item"><a class="page-link text-teal" href="#">2</a></li>
-      <li class="page-item"><a class="page-link text-teal" href="#">3</a></li>
-      <li class="page-item">
-        <a class="page-link text-teal" href="#">Next</a>
-      </li>
-    </ul>
-  </nav> --}}
 </div>
 @include('home.modal')
 @endsection
