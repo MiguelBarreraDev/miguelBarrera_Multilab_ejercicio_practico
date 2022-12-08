@@ -2,6 +2,12 @@
 
 @section('content')
 <h1 class="ft-3 text-center text-teal fw-bold my-4">Welcome {{ auth()->user()->name }} {{ auth()->user()->id }}</h1>
+@if(Session::get('success', false))
+<div id='alert-add-order-success' class="container alert alert-teal alert-dismissible fade show" role="alert">
+  <strong>{{ Session::get('success') }}</strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+@endif
 <div class="container table-responsive">
   <table class="table align-middle w-100 table-hover table-bordered shadow-sm caption-top">
     <caption>
@@ -38,5 +44,12 @@
       @endif
     </tbody>
   </table>
+</div>
+<div class="container d-flex justify-content-end">
+  <button href="{{ url('/order')}}" class="btn btn-teal" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    <i class="fa fa-add"></i>
+    Añadir orden
+  </button>
+  @include('home.modal')
 </div>
 @endsection

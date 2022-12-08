@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Order;
+use App\Models\Patient;
+use App\Models\Doctor;
 
 class HomeController extends Controller
 {
@@ -19,6 +21,14 @@ class HomeController extends Controller
             $orders->load('user', 'patient');
         }
 
-        return view('home.home', ['orders' => $orders]);
+        $patients = Patient::all();
+
+        $doctors = Doctor::all();
+
+        return view('home.home', [
+            'orders' => $orders,
+            'patients' => $patients,
+            'doctors' => $doctors
+        ]);
     }
 }

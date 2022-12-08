@@ -48,15 +48,20 @@ class OrdersController extends Controller
 
     /**
      * Store order
+     *
+     * @param Request $request
      */
     public function store(Request $request)
     {
         $order = new Order();
         $order->code = Helper::generateUniqueCode();
         $order->patient_id = $request->patient_id;
+        if (isset($request->doctor_id)) {
+            $order->doctor_id = $request->doctor_id;
+        }
         $order->user_id = Auth::user()->id;
         $order->save();
 
-        return response($order, 200);
+        return redirect('/home')->with('success', 'Orden creada con exito');
     }
 }
